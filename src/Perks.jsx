@@ -1,9 +1,18 @@
 
-function Perks({selected, onChange}) {
+function Perks({ selected, onChange }) {
+  
+  function handleCbClick(ev) {
+    const { checked, name } = ev.target;
+    if (checked) {
+      onChange([...selected, name])
+    } else {
+      onChange([...selected.filter(selectedName => selectedName !== name)]);
+    } 
+  }
   return (
     <>
       <label className='border p-4 flex rounded-2xl gap-2 items-center cursor-pointer'>
-        <input type='checkbox' />
+        <input type='checkbox' name='Wifi' onChange = {handleCbClick}/>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           fill='none'
@@ -21,7 +30,7 @@ function Perks({selected, onChange}) {
         <span>Wifi</span>
       </label>
       <label className='border p-4 flex rounded-2xl gap-2 items-center cursor-pointer'>
-        <input type='checkbox' />
+        <input type='checkbox' name='Phone' onChange = {handleCbClick}/>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           fill='none'
@@ -39,7 +48,7 @@ function Perks({selected, onChange}) {
         <span>Phone</span>
       </label>
       <label className='border p-4 flex rounded-2xl gap-2 items-center cursor-pointer'>
-        <input type='checkbox' />
+        <input type='checkbox' name='TV' onChange = {handleCbClick}/>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           fill='none'
@@ -57,7 +66,7 @@ function Perks({selected, onChange}) {
         <span>TV</span>
       </label>
       <label className='border p-4 flex rounded-2xl gap-2 items-center cursor-pointer'>
-        <input type='checkbox' />
+        <input type='checkbox' name='Fire alarm' onChange = {handleCbClick}/>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           fill='none'
@@ -81,7 +90,7 @@ function Perks({selected, onChange}) {
         <span>Fire alarm</span>
       </label>
       <label className='border p-4 flex rounded-2xl gap-2 items-center cursor-pointer'>
-        <input type='checkbox' />
+        <input type='checkbox' name='Computer' onChange = {handleCbClick}/>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           fill='none'
@@ -99,7 +108,7 @@ function Perks({selected, onChange}) {
         <span>Computer</span>
       </label>
       <label className='border p-4 flex rounded-2xl gap-2 items-center cursor-pointer'>
-        <input type='checkbox' />
+        <input type='checkbox' name='Radio' onChange = {handleCbClick}/>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           fill='none'
